@@ -1,6 +1,7 @@
 import { createHighlightButton } from "../highlight-button/create.js";
 import { createSpanElement } from "./createhighlight.js";
 import { removeHighlight } from "./removehighlight.js";
+import { removeAllHighlights } from "../storage/removeallhighlights.js";
 
 let selection;
 let selectedText;
@@ -106,5 +107,12 @@ function initializeHighlighter() {
 function initializeRemoveHighlighter() {
   document.addEventListener("mouseup", showRemoveButton);
 }
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "removeAllHighlights") {
+    const result = removeAllHighlights();
+    sendResponse(result);
+  }
+});
 
 export { initializeHighlighter, initializeRemoveHighlighter };
