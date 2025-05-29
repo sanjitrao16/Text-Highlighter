@@ -9,3 +9,16 @@
   border-radius: 50%;
   border: 2px solid black;
 }
+
+.remove-button {
+  margin-top: 1rem;
+}
+
+.remove-button a {
+  background-color: black;
+  padding: 0.25rem;
+  display: inline-block;
+  border: 1px solid black;
+  text-decoration: none;
+  color: white;
+}

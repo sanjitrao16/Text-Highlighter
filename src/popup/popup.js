@@ -1,4 +1,5 @@
 const colourPalette = document.getElementById("colour-palette");
+const remove = document.getElementById("remove");
 
 colourPalette.addEventListener("click", (e) => {
   e.preventDefault();

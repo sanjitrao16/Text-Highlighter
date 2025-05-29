@@ -1,6 +1,10 @@
 import { Highlight } from "../storage/highlight.js";
 import { getCSSPath } from "../utils/paths.js";
 import { storeHighlight } from "../storage/store.js";
+import {
+  highlightSingleTextNode,
+  highlightMultipleNodes,
+} from "./highlight.js";
 
 function createSpanElement(colour, range, selection) {
   const span = document.createElement("span");
@@ -21,7 +25,6 @@ function createSpanElement(colour, range, selection) {
 
   try {
     // Create a new Highlight object
-
     let highlight = new Highlight(
       selection.toString(),
       (colour || "yellow").toString(),
@@ -34,7 +37,7 @@ function createSpanElement(colour, range, selection) {
     );
 
     // Step 1: Create a range from anchor to focus
-    const range = document.createRange();
+    const selectionRange = document.createRange();
 
     // Ensure consistent direction
     const position = anchorNode.compareDocumentPosition(focusNode);
@@ -42,46 +45,28 @@ function createSpanElement(colour, range, selection) {
       position === 0 || position & Node.DOCUMENT_POSITION_FOLLOWING;
 
     if (isForward) {
-      range.setStart(anchorNode, highlight.anchorOffset);
-      range.setEnd(focusNode, highlight.focusOffset);
+      selectionRange.setStart(anchorNode, highlight.anchorOffset);
+      selectionRange.setEnd(focusNode, highlight.focusOffset);
     } else {
-      range.setStart(focusNode, highlight.focusOffset);
-      range.setEnd(anchorNode, highlight.anchorOffset);
+      selectionRange.setStart(focusNode, highlight.focusOffset);
+      selectionRange.setEnd(anchorNode, highlight.anchorOffset);
     }
 
-    // Step 2: Extract contents and rewrap text nodes
-    const contents = range.cloneContents();
-    const walker = document.createTreeWalker(
-      contents,
-      NodeFilter.SHOW_TEXT,
-      null,
-      false
-    );
+    // Step 2: Check if it's a single text node selection
+    const isSingleNode = anchorNode === focusNode;
 
-    const span = document.createElement("span");
-    span.style.backgroundColor = highlight.color;
-    span.setAttribute("id", highlight.id);
-    span.setAttribute("class", "highlighted");
-
-    // Re-wrap each text node (splitting not needed because range is clean)
-    let node;
-    while ((node = walker.nextNode())) {
-      const wrapper = document.createElement("span");
-      wrapper.style.backgroundColor = highlight.color;
-      wrapper.setAttribute("class", "highlighted-part");
-      wrapper.textContent = node.textContent;
-      node.parentNode.replaceChild(wrapper, node);
+    if (isSingleNode) {
+      // Handle single text node selection
+      highlightSingleTextNode(anchorNode, highlight, isForward);
+    } else {
+      // Handle multi-node selection
+      highlightMultipleNodes(selectionRange, highlight, isForward);
     }
-
-    // Insert the span into original document range
-    const extracted = range.extractContents();
-    span.appendChild(extracted);
-    range.insertNode(span);
 
     // Step 3: Deselect
     window.getSelection().removeAllRanges();
 
-    console.log(span.id);
+    console.log(`Highlighted with ID: ${highlight.id}`);
 
     // Store the highlight in local storage
     storeHighlight(highlight);

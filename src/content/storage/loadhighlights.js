@@ -1,4 +1,8 @@
 import { getNodeFromCSSPath } from "../utils/paths.js";
+import {
+  restoreSingleTextNode,
+  restoreMultipleNodes,
+} from "../highlight/restorehighlight.js";
 
 function loadAllHighlights() {
   console.log("Loading all highlights...");
@@ -48,41 +52,21 @@ function restoreHighlights() {
           range.setEnd(anchorNode, highlight.anchorOffset);
         }
 
-        // Step 2: Extract contents and rewrap text nodes
-        const contents = range.cloneContents();
-        const walker = document.createTreeWalker(
-          contents,
-          NodeFilter.SHOW_TEXT,
-          null,
-          false
-        );
+        // Step 2: Check if it's a single text node selection
+        const isSingleNode = anchorNode === focusNode;
 
-        const span = document.createElement("span");
-        span.style.backgroundColor = highlight.color;
-        span.setAttribute("id", highlight.id);
-        span.setAttribute("class", "highlighted");
-
-        // Re-wrap each text node (splitting not needed because range is clean)
-        let node;
-        while ((node = walker.nextNode())) {
-          const wrapper = document.createElement("span");
-          wrapper.style.backgroundColor = highlight.color;
-          wrapper.setAttribute("class", "highlighted-part");
-          wrapper.textContent = node.textContent;
-          node.parentNode.replaceChild(wrapper, node);
+        if (isSingleNode) {
+          // Handle single text node restoration
+          restoreSingleTextNode(anchorNode, highlight, isForward);
+        } else {
+          // Handle multi-node restoration
+          restoreMultipleNodes(range, highlight, isForward);
         }
-
-        // Insert the span into original document range
-        const extracted = range.extractContents();
-        span.appendChild(extracted);
-        range.insertNode(span);
-
-        // Step 3: Deselect
-        window.getSelection().removeAllRanges();
       } catch (err) {
         console.error("Failed to restore highlight:", err);
       }
     });
   });
 }
+
 export { loadAllHighlights };
