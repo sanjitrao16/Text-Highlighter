@@ -2,6 +2,7 @@ import { createHighlightButton } from "../highlight-button/create.js";
 import { createSpanElement } from "./createhighlight.js";
 import { removeHighlight } from "./removehighlight.js";
 import { removeAllHighlights } from "../storage/removeallhighlights.js";
+import { handleHighlightShortcut } from "../utils/key-shortcuts.js";
 
 let selection;
 let selectedText;
@@ -110,6 +111,17 @@ function initializeRemoveHighlighter() {
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "removeAllHighlights") {
+    const result = removeAllHighlights();
+    sendResponse(result);
+  }
+});
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "highlight-text") {
+    handleHighlightShortcut();
+    highlightButton.style.display = "none";
+    sendResponse({ success: true });
+  } else if (request.action === "remove-all-highlights") {
     const result = removeAllHighlights();
     sendResponse(result);
   }

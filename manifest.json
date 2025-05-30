@@ -41,5 +41,21 @@
       "resources": ["src/content/*", "images/*.png"],
       "matches": ["<all_urls>"]
     }
-  ]
+  ],
+  "commands": {
+    "highlight-text": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+H",
+        "mac": "Command+Shift+H"
+      },
+      "description": "Highlight selected text"
+    },
+    "remove-all-highlights": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+E",
+        "mac": "Command+Shift+E"
+      },
+      "description": "Remove all highlights from page"
+    }
+  }
 }
