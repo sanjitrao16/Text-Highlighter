@@ -1,3 +1,7 @@
+html {
+  height: 370px;
+}
+
 #colour-palette {
   display: flex;
   gap: 0.5rem;
