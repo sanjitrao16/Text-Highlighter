@@ -4,7 +4,6 @@ function handleHighlightShortcut() {
   const selection = window.getSelection();
 
   if (!selection || selection.toString().trim().length === 0) {
-    console.log("No text selected for highlighting");
     return;
   }
 
@@ -17,8 +16,6 @@ function handleHighlightShortcut() {
       createSpanElement(color, range, selection);
 
       selection.removeAllRanges();
-
-      console.log(`Text highlighted with color: ${color}`);
     });
   } catch (error) {
     console.error("Error highlighting text with shortcut:", error);

@@ -68,12 +68,6 @@ function showHighlightButton(e) {
     highlightButton.style.left = `${rect.left + window.scrollX}px`;
     highlightButton.style.display = "block";
   }
-
-  console.log(selection.focusNode);
-  console.log(selection.anchorNode);
-  console.log(selection.focusOffset);
-  console.log(selection.anchorOffset);
-  console.log(range);
 }
 
 function showRemoveButton(e) {

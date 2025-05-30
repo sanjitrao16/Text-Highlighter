@@ -37,8 +37,6 @@ function highlightSingleTextNode(textNode, highlight, isForward) {
     const extractedContent = nodeRange.extractContents();
     nodeSpan.appendChild(extractedContent);
     nodeRange.insertNode(nodeSpan);
-
-    console.log("Single node highlighted successfully");
   } catch (error) {
     console.error("Error highlighting single text node:", error);
   }
@@ -96,10 +94,6 @@ function highlightMultipleNodes(selectionRange, highlight, isForward) {
       console.error("Error highlighting text node:", error);
     }
   });
-
-  console.log(
-    `Created ${highlightedSpans.length} spans for multi-node highlight`
-  );
 }
 
 // Helper function to get all text nodes within a range

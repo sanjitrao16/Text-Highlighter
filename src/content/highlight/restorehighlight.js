@@ -47,10 +47,6 @@ function restoreSingleTextNode(textNode, highlight, isForward) {
     const extractedContent = nodeRange.extractContents();
     nodeSpan.appendChild(extractedContent);
     nodeRange.insertNode(nodeSpan);
-
-    console.log(
-      `Single node restored with status: ${highlight.status || "active"}`
-    );
   } catch (error) {
     console.error("Error restoring single text node:", error);
   }
@@ -116,10 +112,6 @@ function restoreMultipleNodes(selectionRange, highlight, isForward) {
       console.error("Error restoring text node:", error);
     }
   });
-
-  console.log(
-    `Restored ${restoredSpans.length} spans with status: ${highlight.status || "active"}`
-  );
 }
 
 export { restoreSingleTextNode, restoreMultipleNodes };

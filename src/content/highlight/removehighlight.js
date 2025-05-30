@@ -34,21 +34,14 @@ function removeHighlight(selection) {
       `span[id="${highlightId}"].highlighted`
     );
 
-    console.log(
-      `Removing highlight from ${allHighlightSpans.length} spans for ID: ${highlightId}`
-    );
-
     // Instead of removing spans, just hide them and change class
     allHighlightSpans.forEach((span, index) => {
       span.style.backgroundColor = "transparent";
       span.className = "highlighted-removed"; // Change class to indicate removed state
-      console.log(`Hidden span ${index + 1}/${allHighlightSpans.length}`);
     });
 
     // Update storage to mark as removed
     updateHighlightStatus(highlightId, "removed");
-
-    console.log(`Successfully hid highlight ${highlightId}`);
     return true;
   } catch (error) {
     console.error("Error in removeHighlight:", error);

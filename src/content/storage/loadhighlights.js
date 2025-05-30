@@ -5,8 +5,6 @@ import {
 } from "../highlight/restorehighlight.js";
 
 function loadAllHighlights() {
-  console.log("Loading all highlights...");
-
   function loadHighlights() {
     restoreHighlights();
   }
@@ -30,8 +28,6 @@ function restoreHighlights() {
 
       const anchorNode = getNodeFromCSSPath(highlight.anchorNode);
       const focusNode = getNodeFromCSSPath(highlight.focusNode);
-
-      console.log(anchorNode, focusNode);
 
       if (!anchorNode || !focusNode) return;
 

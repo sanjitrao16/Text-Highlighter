@@ -10,8 +10,6 @@ function createSpanElement(colour, range, selection) {
   const span = document.createElement("span");
   span.style.backgroundColor = colour || "yellow";
 
-  console.log(selection.focusOffset);
-
   let container = range.commonAncestorContainer;
 
   while (!container.innerHTML) {
@@ -65,8 +63,6 @@ function createSpanElement(colour, range, selection) {
 
     // Step 3: Deselect
     window.getSelection().removeAllRanges();
-
-    console.log(`Highlighted with ID: ${highlight.id}`);
 
     // Store the highlight in local storage
     storeHighlight(highlight);
