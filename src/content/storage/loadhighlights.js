@@ -26,7 +26,7 @@ function restoreHighlights() {
       (result.highlights && result.highlights[pageUrl]) || [];
 
     pageHighlights.forEach((highlight) => {
-      if (document.getElementById(highlight.id)) return; // Already applied
+      if (document.getElementById(highlight.id)) return;
 
       const anchorNode = getNodeFromCSSPath(highlight.anchorNode);
       const focusNode = getNodeFromCSSPath(highlight.focusNode);

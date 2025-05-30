@@ -29,9 +29,17 @@ function restoreSingleTextNode(textNode, highlight, isForward) {
 
   // Create span for this text node
   const nodeSpan = document.createElement("span");
-  nodeSpan.style.backgroundColor = highlight.color;
+
+  // Apply styling based on highlight status
+  if (highlight.status === "removed") {
+    nodeSpan.style.backgroundColor = "transparent";
+    nodeSpan.setAttribute("class", "highlighted-removed");
+  } else {
+    nodeSpan.style.backgroundColor = highlight.color;
+    nodeSpan.setAttribute("class", "highlighted");
+  }
+
   nodeSpan.setAttribute("id", highlight.id);
-  nodeSpan.setAttribute("class", "highlighted");
   nodeSpan.setAttribute("data-highlight-part", "0");
 
   try {
@@ -40,7 +48,9 @@ function restoreSingleTextNode(textNode, highlight, isForward) {
     nodeSpan.appendChild(extractedContent);
     nodeRange.insertNode(nodeSpan);
 
-    console.log("Single node restored successfully");
+    console.log(
+      `Single node restored with status: ${highlight.status || "active"}`
+    );
   } catch (error) {
     console.error("Error restoring single text node:", error);
   }
@@ -82,9 +92,17 @@ function restoreMultipleNodes(selectionRange, highlight, isForward) {
 
     // Create span for this text node
     const nodeSpan = document.createElement("span");
-    nodeSpan.style.backgroundColor = highlight.color;
+
+    // Apply styling based on highlight status
+    if (highlight.status === "removed") {
+      nodeSpan.style.backgroundColor = "transparent";
+      nodeSpan.setAttribute("class", "highlighted-removed");
+    } else {
+      nodeSpan.style.backgroundColor = highlight.color;
+      nodeSpan.setAttribute("class", "highlighted");
+    }
+
     nodeSpan.setAttribute("id", highlight.id);
-    nodeSpan.setAttribute("class", "highlighted");
     nodeSpan.setAttribute("data-highlight-part", index.toString());
 
     try {
@@ -100,7 +118,7 @@ function restoreMultipleNodes(selectionRange, highlight, isForward) {
   });
 
   console.log(
-    `Restored ${restoredSpans.length} spans for multi-node highlight`
+    `Restored ${restoredSpans.length} spans with status: ${highlight.status || "active"}`
   );
 }
 
