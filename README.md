@@ -55,7 +55,7 @@ You have installed the extension, read further to check on how to use it.😊
 
 4. Now visit any website, there select any piece of text, and a `"Highlight"` button will appear just below the selection,
    clicking on that would highlight the selected text with the colour you chose.
-   Now if you select the highlighted piece of text, a `"Remove Highlight` button will appear which when clicked will remove the corresponding text highlight.
+   Now if you select the highlighted piece of text, a `"Remove Highlight"` button will appear which when clicked will remove the corresponding text highlight.
 
 5. After highliting texts in the web-page, the highlights are saved automatically and it restores the highlights when you revisit the same webpage.
 
