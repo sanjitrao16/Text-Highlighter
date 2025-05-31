@@ -14,10 +14,10 @@ _**Note: This extension is currently not production ready and is not available o
    ![Step-2 Folder view](https://github.com/user-attachments/assets/a85f8266-02a2-42d0-b463-58f7a33ed2a2)
 
 3. Move on to Google Chrome (Laptop/Desktop) and type in the following. <br>
-   **_chrome://extensions/_** <br>
+   `**_chrome://extensions/_**` <br>
    This will open your browser's extension settings where you can **manage/add/remove** your extensions.
 
-4. Next, on the top right corner you can see an option **Developer Mode**. Toggle that to **ON** so that you can add your own extensions from our local computer.
+4. Next, on the top right corner you can see an option, **Developer Mode**. Toggle that to **ON** so that you can add your own extensions from your local computer.
    ![Step-3 Extension settings](https://github.com/user-attachments/assets/8377cfd9-61ae-4c90-a7ea-6fb0e7c6a49b)
 
    After toggling to "Developer Mode", you will now see three options displaying.
