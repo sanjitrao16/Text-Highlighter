@@ -3,27 +3,28 @@
 **Text Highlighter** is a Google Chrome Extension which allows users to **highlight** pieces of text in a web page. The highlights are **automatically saved** and loaded on every page revisit,
 so that users don't **lose track** of key information.
 
-*__Note: This extension is currently not production ready and is not available on the Chrome Web Store. Therefore, in order to use this extension follow the below guide.__*
+_**Note: This extension is currently not production ready and is not available on the Chrome Web Store. Therefore, in order to use this extension follow the below guide.**_
 
 ## Guide to install the extension locally
 
 1. Go to the repository, and download the zip file of it.
-![Step-1 Image](https://github.com/user-attachments/assets/5baeb3c8-6f26-44c5-b9be-0944a174f01f)
+   ![Step-1 Image](https://github.com/user-attachments/assets/5baeb3c8-6f26-44c5-b9be-0944a174f01f)
 
 2. Navigate the ZIP file in your Explorer and **Extract All** the contents. It should look something like this.
-![Step-2 Folder view](https://github.com/user-attachments/assets/a85f8266-02a2-42d0-b463-58f7a33ed2a2)
+   ![Step-2 Folder view](https://github.com/user-attachments/assets/a85f8266-02a2-42d0-b463-58f7a33ed2a2)
 
-3. Move on to Google Chrome (Laptop/Desktop) and type in the following.
-   ***chrome://extensions/***
+3. Move on to Google Chrome (Laptop/Desktop) and type in the following. <br>
+   **_chrome://extensions/_** <br>
    This will open your browser's extension settings where you can **manage/add/remove** your extensions.
 
-4. Next, on the top right corner you can see an option __Developer Mode__. Toggle that to **ON** so that you can add your own extensions from our local computer.
+4. Next, on the top right corner you can see an option **Developer Mode**. Toggle that to **ON** so that you can add your own extensions from our local computer.
    ![Step-3 Extension settings](https://github.com/user-attachments/assets/8377cfd9-61ae-4c90-a7ea-6fb0e7c6a49b)
 
    After toggling to "Developer Mode", you will now see three options displaying.
+
    1. Load unpacked
-   2.  Pack Extension
-   3.   Update
+   2. Pack Extension
+   3. Update
 
 5. Click on the **Load unpacked** option. Your **file-explorer** will then popup, navigate to where you have the extracted folder saved. <br>
    ![Step-4 Loading extension folder](https://github.com/user-attachments/assets/e05fc701-fac9-4661-89d7-f21561af9e26)
@@ -33,13 +34,11 @@ so that users don't **lose track** of key information.
 
    Further you have options to **Disable** the extension, **Re-Load** the extension or even **Remove** it.
 
-
 You have installed the extension, scroll further to check on how to use it.😊
-
 
 ## How to use the extension
 
-1. After installing the extension, on a new tab, you can view your extension by clicking the ***JIGSAW ICON*** located on the right side of the search bar.
+1. After installing the extension, on a new tab, you can view your extension by clicking the **_JIGSAW ICON_** located on the right side of the search bar.
    ![Step-6 Extension View](https://github.com/user-attachments/assets/ca3e1cd6-2993-4b83-b315-6f441dc948a1)
 
    After clicking on it, a pop-up bar appears which shows all your installed extensions, check for **Text Highlighter**.
@@ -50,6 +49,7 @@ You have installed the extension, scroll further to check on how to use it.😊
    Here you have options where you can **select colour** of the highlighter, and also an option to **remove all highlights** present in that web-page.
 
 3. Now further you can also apply your custom settings on the extension, like,
+
    1. On which websites the extension should work
    2. Enable the extension only when clicked on it etc.
 
@@ -66,7 +66,3 @@ You have installed the extension, scroll further to check on how to use it.😊
    2. Remove All Highlights in the webpage :
       1. Windows - `Ctrl+Shift+E`
       2. Mac - `Ctrl+Shift+E`
-   
-
-
-   
