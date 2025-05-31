@@ -14,7 +14,7 @@ _**Note: This extension is currently not production ready and is not available o
    ![Step-2 Folder view](https://github.com/user-attachments/assets/a85f8266-02a2-42d0-b463-58f7a33ed2a2)
 
 3. Move on to Google Chrome (Laptop/Desktop) and type in the following. <br>
-   `**_chrome://extensions/_**` <br>
+   `chrome://extensions/` <br>
    This will open your browser's extension settings where you can **manage/add/remove** your extensions.
 
 4. Next, on the top right corner you can see an option, **Developer Mode**. Toggle that to **ON** so that you can add your own extensions from your local computer.
@@ -29,12 +29,12 @@ _**Note: This extension is currently not production ready and is not available o
 5. Click on the **Load unpacked** option. Your **file-explorer** will then popup, navigate to where you have the extracted folder saved. <br>
    ![Step-4 Loading extension folder](https://github.com/user-attachments/assets/e05fc701-fac9-4661-89d7-f21561af9e26)
 
-6. After loading the extension, your page should now have the extension installed on your web-browser. It should look something like this.
+6. After loading the extension, your page should now have the extension installed on your web browser. It should look something like this.
    ![Step-5 Extension installed](https://github.com/user-attachments/assets/c4317b1c-bd4a-4fd0-b446-ecf7760a933d)
 
    Further you have options to **Disable** the extension, **Re-Load** the extension or even **Remove** it.
 
-You have installed the extension, scroll further to check on how to use it.😊
+You have installed the extension, read further to check on how to use it.😊
 
 ## How to use the extension
 
